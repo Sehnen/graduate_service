@@ -1,13 +1,14 @@
-package icu.sehnen.parent.graduatedsign;
+package icu.sehnen;
 
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
+import org.springframework.cloud.client.discovery.EnableDiscoveryClient;
 
 @SpringBootApplication
-public class GraduatedsignApplication {
-
+@EnableDiscoveryClient
+public class Upload {
     public static void main(String[] args) {
-        SpringApplication.run(GraduatedsignApplication.class, args);
+        SpringApplication.run(Upload.class, args);
     }
 
 }
