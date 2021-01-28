@@ -3,32 +3,31 @@ package icu.sehnen.controller;
 
 import icu.sehnen.pojo.Category;
 import icu.sehnen.service.CategoryService;
+import icu.sehnen.myexception.MyException;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
-import org.springframework.util.CollectionUtils;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RequestParam;
-import org.springframework.web.bind.annotation.ResponseBody;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.*;
+import icu.sehnen.pojo.ExceptionEnum;
 
 import java.util.List;
 
 @RestController
-@RequestMapping("/category")
+@RequestMapping("category")
 public class CategoryController {
 
     @Autowired
     private CategoryService categoryService;
+    @GetMapping("categories")
 public ResponseEntity<List<Category>> queryByCatLevel( @RequestParam(value = "type",defaultValue = "3") int type){
 
-    List<Category> list =null;
-    if(CollectionUtils.isEmpty(list)){
+    //List<Category> list = categoryService.getListtoTree();
+   // if(CollectionUtils.isEmpty(list)){
         //404 资源服务器未找到
-        return ResponseEntity.status(HttpStatus.NOT_FOUND).build();
-    }
-    return ResponseEntity.ok(list);
-
+      //  return ResponseEntity.status(HttpStatus.NOT_FOUND).build();
+        System.out.println("jinru");
+        throw  new MyException(ExceptionEnum.PRICE_CANNOT_BE_NULL);
+ //   }
+   // return ResponseEntity.ok(list);
 
 }
 

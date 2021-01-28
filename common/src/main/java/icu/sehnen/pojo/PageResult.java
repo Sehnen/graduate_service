@@ -1,4 +1,4 @@
-package pojo;
+package icu.sehnen.pojo;
 
 import java.util.List;
 

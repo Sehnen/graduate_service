@@ -3,6 +3,8 @@ server:
 spring:
   application:
     name: item-service
+  jackson:
+    default-property-inclusion: non_null
   datasource:
     url: jdbc:mysql://127.0.0.1:3310/myDsign
     username: root
